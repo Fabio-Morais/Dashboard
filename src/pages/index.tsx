@@ -1,5 +1,5 @@
-import { Text } from '@chakra-ui/react'
+import StatisticSection from '@/components/StatisticSection/StatisticSection'
 
 export default function Home() {
-  return <Text>Hello</Text>
+  return <StatisticSection />
 }
