@@ -7,7 +7,6 @@ import { Metric } from '@/utils/interfaces/Metrics'
 import IconBox from '@/components/IconBox/IconBox'
 import Section from '@/components/Section/Section'
 import Statistic from '@/components/Statistic/Statistic'
-import StatisticSkeleton from '@/components/StatisticSkeleton/StatisticSkeleton'
 
 interface Props {
   data: Metric[]
@@ -20,7 +19,7 @@ const EfficiencySection = (props: Props) => {
     <Box>
       <Section>Efficiency</Section>
       <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }}>
-        {props.data ? (
+        {props.data &&
           //Already loaded
           props.data.map((metric: Metric) => (
             <Statistic
@@ -30,11 +29,7 @@ const EfficiencySection = (props: Props) => {
               description={metric.description}
               key={metric.id}
             />
-          ))
-        ) : (
-          //Is loading
-          <StatisticSkeleton numberOfSkeletons={3} />
-        )}
+          ))}
       </Flex>
     </Box>
   )

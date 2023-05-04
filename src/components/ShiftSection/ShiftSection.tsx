@@ -9,7 +9,7 @@ import { Metric } from '@/utils/interfaces/Metrics'
 import Section from '@/components/Section/Section'
 
 import { convertSecondsToTimeObject } from '@/utils/convertions'
-import useShiftHook from '@/utils/hooks/useShiftHook'
+import usePieHook from '@/utils/hooks/usePieHook'
 
 interface Props {
   data: Metric[]
@@ -17,7 +17,7 @@ interface Props {
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 const ShiftSection = (props: Props) => {
-  const { chartData } = useShiftHook(props)
+  const { chartData } = usePieHook(props)
 
   const convertTime = (time: number, type: string) => {
     if (type === 'hours') {

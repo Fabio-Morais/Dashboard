@@ -4,8 +4,9 @@ import { Metric } from '@/utils/interfaces/Metrics'
 
 interface Props {
   data: Metric[]
+  convertToMinutes?: boolean
 }
-const useShiftHook = (props: Props) => {
+const usePieHook = (props: Props) => {
   const emptyData = {
     datasets: [
       {
@@ -26,7 +27,11 @@ const useShiftHook = (props: Props) => {
       const dataValues: number[] = []
       props.data.forEach((item) => {
         if (item.type == 'secs') {
-          dataValues.push(item.value / 3600)
+          if (props.convertToMinutes) {
+            dataValues.push(item.value / 60)
+          } else {
+            dataValues.push(item.value / 3600)
+          }
           dataLabels.push(item.label)
         } else {
           dataValues.push(item.value - dataValues[0])
@@ -37,10 +42,14 @@ const useShiftHook = (props: Props) => {
         labels: dataLabels,
         datasets: [
           {
-            label: 'Hours',
+            label: props.convertToMinutes ? 'Minutes' : 'Hours',
             data: dataValues,
-            backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
+            backgroundColor: props.convertToMinutes
+              ? ['rgba(185,255,99,0.2)', 'rgba(241,141,70,0.2)']
+              : ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
+            borderColor: props.convertToMinutes
+              ? ['rgba(185,255,99,1)', 'rgba(241,141,70,1)']
+              : ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
             borderWidth: 1,
           },
         ],
@@ -49,4 +58,4 @@ const useShiftHook = (props: Props) => {
   }, [props.data])
   return { chartData } as const
 }
-export default useShiftHook
+export default usePieHook

@@ -14,7 +14,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react'
 
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { ReactText } from 'react'
 import { IconType } from 'react-icons'
 import { FiCompass, FiHome, FiMenu, FiSettings, FiStar, FiTrendingUp } from 'react-icons/fi'
@@ -60,6 +60,8 @@ interface SidebarProps extends BoxProps {
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const [selectedItemIndex, setSelectedItemIndex] = useState(0) // Initialize the selected item index
+
   return (
     <Box
       bg={useColorModeValue('white', 'gray.900')}
@@ -76,8 +78,13 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+      {LinkItems.map((link, index) => (
+        <NavItem
+          key={index}
+          icon={link.icon}
+          isSelected={selectedItemIndex === index}
+          onClick={() => setSelectedItemIndex(index)}
+        >
           {link.name}
         </NavItem>
       ))}
@@ -88,30 +95,45 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
 interface NavItemProps extends FlexProps {
   icon: IconType
   children: ReactText
+  isSelected: boolean // Updated prop name
+  onClick: () => void
 }
-const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
+
+const NavItem = ({ icon, children, isSelected, onClick, ...rest }: NavItemProps) => {
+  // Updated prop name
   return (
     <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
         p="4"
         mx="4"
+        mb={3}
         borderRadius="lg"
         role="group"
         cursor="pointer"
-        _hover={{
-          bg: 'cyan.400',
-          color: 'white',
-        }}
+        bg={isSelected ? 'cyan.700' : 'transparent'} // Updated prop name
+        color={isSelected ? 'white' : 'inherit'} // Updated prop name
+        _hover={
+          !isSelected
+            ? {
+                bg: 'cyan.100',
+              }
+            : undefined
+        }
+        onClick={onClick}
         {...rest}
       >
         {icon && (
           <Icon
             mr="4"
             fontSize="16"
-            _groupHover={{
-              color: 'white',
-            }}
+            _groupHover={
+              !isSelected
+                ? {
+                    color: 'black',
+                  }
+                : undefined
+            }
             as={icon}
           />
         )}
@@ -120,7 +142,6 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
     </Link>
   )
 }
-
 interface MobileProps extends FlexProps {
   onOpen: () => void
 }

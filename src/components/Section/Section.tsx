@@ -10,7 +10,7 @@ interface Props {
 const Section = (props: Props) => {
   return (
     <>
-      <Heading>{props.children}</Heading>
+      <Heading size="lg">{props.children}</Heading>
       <Divider mt={'10px'} mb={'20px'} />
     </>
   )

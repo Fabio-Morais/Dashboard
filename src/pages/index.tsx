@@ -1,4 +1,5 @@
-import { Container, Stack } from '@chakra-ui/react'
+import { Container, Heading, Stack } from '@chakra-ui/react'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '@chakra-ui/react'
 
 import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
@@ -27,7 +28,18 @@ export default function Home() {
   return (
     <>
       <Sidebar>
-        <Container maxW="8xl" mt={5}>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Pages</BreadcrumbLink>
+          </BreadcrumbItem>
+
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+        </Breadcrumb>
+        <Heading size="xl">Home</Heading>
+
+        <Container maxW="10xl" mt={10}>
           <Stack direction={['column']} spacing={10}>
             <EfficiencySection data={metrics['efficiency']} />
             <ShiftSection data={metrics['shift']} />
