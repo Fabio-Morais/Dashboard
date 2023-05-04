@@ -11,7 +11,7 @@ export default function IconBox(props: {
   const textColorSecondary = 'secondaryGray.600'
 
   return (
-    <Card p="15px" variant="elevated" maxW="300px">
+    <Card p="15px" variant="elevated" maxW="300px" width={'100%'}>
       <Flex my="auto" h="100%" align={{ base: 'center', xl: 'center' }} justify={{ base: 'center', xl: 'center' }}>
         {startContent}
 

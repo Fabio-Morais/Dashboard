@@ -1,7 +1,7 @@
 import { Flex, useColorModeValue } from '@chakra-ui/react'
 
 export default function IconBox(props: { icon: JSX.Element | string }) {
-  const { icon, ...rest } = props
+  const { icon } = props
   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100')
 
   return (
