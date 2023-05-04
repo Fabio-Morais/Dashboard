@@ -1,7 +1,7 @@
 export interface Metric {
   id: string
   label: string
-  value: string | number
+  value: number
   type: 'percentage' | 'number' | 'secs' | 'hours'
   description: string
   category: string
