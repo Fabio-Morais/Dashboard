@@ -1,4 +1,4 @@
-import { Metric, Metrics } from '@/utils/interfaces/metrics'
+import { Metric, Metrics } from '@/utils/interfaces/Metrics'
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 export const fetchMetrics = async () => {

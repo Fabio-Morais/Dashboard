@@ -1,4 +1,4 @@
-import { Metrics } from '@/utils/interfaces/metrics'
+import { Metrics } from '@/utils/interfaces/Metrics'
 
 export const metricsFakeData: Metrics = {
   data: [

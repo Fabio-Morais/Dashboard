@@ -1,16 +1,13 @@
 import { Box, Flex, Icon, useColorModeValue } from '@chakra-ui/react'
 
-import React, { useContext } from 'react'
 import { MdBarChart } from 'react-icons/md'
 
-import { Metric, Metrics } from '@/utils/interfaces/metrics'
+import { Metric } from '@/utils/interfaces/Metrics'
 
 import IconBox from '@/components/IconBox/IconBox'
 import Section from '@/components/Section/Section'
 import Statistic from '@/components/Statistic/Statistic'
 import StatisticSkeleton from '@/components/StatisticSkeleton/StatisticSkeleton'
-
-import StatusContext from '@/utils/contexts/StatusContext'
 
 interface Props {
   data: Metric[]
@@ -19,12 +16,10 @@ interface Props {
 const EfficiencySection = (props: Props) => {
   const brandColor = useColorModeValue('brand.500', 'white')
 
-  const status = useContext(StatusContext)
-
   return (
     <Box>
       <Section>Efficiency</Section>
-      <Flex gap="36px" flexWrap={'wrap'}>
+      <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }}>
         {props.data ? (
           //Already loaded
           props.data.map((metric: Metric) => (
@@ -40,7 +35,7 @@ const EfficiencySection = (props: Props) => {
           //Is loading
           <StatisticSkeleton numberOfSkeletons={3} />
         )}
-      </Flex>{' '}
+      </Flex>
     </Box>
   )
 }
