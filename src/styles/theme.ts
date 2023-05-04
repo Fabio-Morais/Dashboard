@@ -1,4 +1,4 @@
-import { ChakraTheme, extendTheme } from '@chakra-ui/react'
+import { ChakraTheme, defineStyle, defineStyleConfig, extendTheme } from '@chakra-ui/react'
 
 const customTheme: Partial<ChakraTheme> = {
   config: {

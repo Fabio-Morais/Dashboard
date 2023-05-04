@@ -23,11 +23,10 @@ export default function Home() {
     }
   }, [data])
 
-  console.log(metrics['efficiency'])
   return (
     <>
       <Sidebar>
-        <Container maxW="8xl">
+        <Container maxW="10xl">
           <StatusContext.Provider value={status}>
             <EfficiencySection data={metrics['efficiency']} />
           </StatusContext.Provider>
