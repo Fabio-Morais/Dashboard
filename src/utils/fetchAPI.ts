@@ -1,9 +1,12 @@
 import { Metric, Metrics } from '@/utils/interfaces/metrics'
 
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 export const fetchMetrics = async () => {
   try {
     // Perform the API request to fetch the metrics data
     const response = await fetch('/api/metrics')
+    await delay(2000)
+
     return await response.json()
   } catch (error) {
     throw new Error('Failed to fetch metrics')
