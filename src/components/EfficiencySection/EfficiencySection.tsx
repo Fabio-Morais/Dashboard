@@ -1,5 +1,6 @@
-import { Box, Flex, Icon, useColorModeValue } from '@chakra-ui/react'
+import { Box, Card, Flex, HStack, Icon, useColorModeValue } from '@chakra-ui/react'
 
+import { Radar } from 'react-chartjs-2'
 import { MdBarChart } from 'react-icons/md'
 
 import { Metric } from '@/utils/interfaces/Metrics'
@@ -18,7 +19,7 @@ const EfficiencySection = (props: Props) => {
   return (
     <Box>
       <Section>Efficiency</Section>
-      <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }}>
+      <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }} justifyContent={'space-around'}>
         {props.data &&
           //Already loaded
           props.data.map((metric: Metric) => (

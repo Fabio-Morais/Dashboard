@@ -1,3 +1,5 @@
+import { useRouter } from 'next/router'
+
 import {
   Box,
   BoxProps,
@@ -22,14 +24,16 @@ import { FiCompass, FiHome, FiMenu, FiSettings, FiStar, FiTrendingUp } from 'rea
 interface LinkItemProps {
   name: string
   icon: IconType
+  link: string
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome },
-  { name: 'Charts', icon: FiTrendingUp },
+  { name: 'Home', icon: FiHome, link: '/' },
+  { name: 'Data', icon: FiTrendingUp, link: '/data' },
 ]
 
 export default function Sidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
+
   return (
     <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
       <SidebarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
@@ -60,7 +64,9 @@ interface SidebarProps extends BoxProps {
 }
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-  const [selectedItemIndex, setSelectedItemIndex] = useState(0) // Initialize the selected item index
+  const router = useRouter()
+  console.log(router.asPath)
+  const [selectedItemIndex, setSelectedItemIndex] = useState(router.asPath == '/' ? 0 : 1) // Initialize the selected item index
 
   return (
     <Box
@@ -84,6 +90,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           icon={link.icon}
           isSelected={selectedItemIndex === index}
           onClick={() => setSelectedItemIndex(index)}
+          link={link.link}
         >
           {link.name}
         </NavItem>
@@ -97,12 +104,13 @@ interface NavItemProps extends FlexProps {
   children: ReactText
   isSelected: boolean // Updated prop name
   onClick: () => void
+  link: string
 }
 
-const NavItem = ({ icon, children, isSelected, onClick, ...rest }: NavItemProps) => {
+const NavItem = ({ icon, children, isSelected, onClick, link, ...rest }: NavItemProps) => {
   // Updated prop name
   return (
-    <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link href={link} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
         p="4"
