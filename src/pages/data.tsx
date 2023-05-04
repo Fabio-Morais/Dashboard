@@ -7,7 +7,6 @@ import { useQuery } from 'react-query'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
-import { DataTable } from '@/components/DataTable'
 import Sidebar from '@/components/SideBar/Sidebar'
 
 import { fetchMetrics, metricsByCategory } from '@/utils/fetchAPI'

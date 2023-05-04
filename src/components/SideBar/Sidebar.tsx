@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 
 import {
@@ -78,10 +79,9 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}
     >
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontWeight="bold">
-          Factory Pal
-        </Text>
+      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between" my={4}>
+        <Image src="/factoryPal.svg" alt="My SVG Image" width={250} height={100} />
+
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link, index) => (
