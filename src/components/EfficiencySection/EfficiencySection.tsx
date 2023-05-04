@@ -22,7 +22,7 @@ const EfficiencySection = (props: Props) => {
 
   return (
     <>
-      <Section>M</Section>
+      <Section>Efficiency</Section>
       <HStack spacing="24px">
         <Statistic
           startContent={<IconBox icon={<Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />} />}

@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <Sidebar>
-        <Container maxW="8xl" style={{ border: '1px solid red' }}>
+        <Container maxW="8xl">
           <StatusContext.Provider value={status}>
             <EfficiencySection data={metrics['efficiency']} />
           </StatusContext.Provider>
