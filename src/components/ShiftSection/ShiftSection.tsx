@@ -17,7 +17,7 @@ const ShiftSection = (props: Props) => {
   const { chartData } = usePieHook(props)
 
   return (
-    <Box>
+    <Box data-testid="shift-section">
       <Section>Shift</Section>
       <Container maxW="98%" mt={8}>
         <Flex gap="36px" height="400px" flexWrap={'wrap'} style={{ display: 'flex' }} justifyContent={'space-between'}>

@@ -16,7 +16,7 @@ const DowntimeSection = (props: Props) => {
   const { chartData } = usePieHook({ ...props, convertToMinutes: true })
 
   return (
-    <Box>
+    <Box data-testid="downtime-section">
       <Section>Down Time</Section>
       <Container maxW="98%" mt={8}>
         <HStack spacing={'45px'} style={{ display: 'flex' }} height="400px">

@@ -18,7 +18,7 @@ const EfficiencySection = (props: Props) => {
   const brandColor = useColorModeValue('brand.500', 'white')
   const icons = [GiFactory, IoMdSpeedometer, MdKeyboardDoubleArrowDown]
   return (
-    <Box>
+    <Box data-testid="efficiency-section">
       <Section>Efficiency</Section>
       <Container maxW="98%" mt={8}>
         <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }} justifyContent={'space-between'}>
