@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
-import { convertToTimeObject } from '@/utils/convertions'
+import { convertToTimeObject } from '@/utils/conversions'
 
 interface Props {
   data: Metric

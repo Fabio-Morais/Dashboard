@@ -1,13 +1,4 @@
-import {
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Container,
-  Flex,
-  Heading,
-  useColorMode,
-} from '@chakra-ui/react'
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Flex, Heading, useColorMode } from '@chakra-ui/react'
 
 import React, { useEffect, useState } from 'react'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
@@ -40,6 +31,8 @@ const Header = (props: Props) => {
       </Box>
       <Box mr={'5%'}>
         <DarkModeSwitch
+          data-is-dark-mode={isDarkMode ? 'true' : 'false'}
+          data-testid="dark-mode-switch"
           checked={!isDarkMode}
           onChange={() => {
             setIsDarkMode((prev) => !prev)

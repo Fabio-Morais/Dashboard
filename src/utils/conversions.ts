@@ -13,17 +13,16 @@ export const convertToTimeObject = (value: number, unit: string): Timer => {
     seconds = value
     minutes = Math.floor(seconds / 60)
     seconds = seconds % 60
+    hours = Math.floor(minutes / 60)
+    minutes = minutes % 60
   } else if (unit === 'hours') {
     hours = value
     minutes = Math.floor(hours * 60)
-    hours = Math.floor(minutes / 60)
+    hours = hours % 24
     minutes = minutes % 60
   } else {
     throw new TypeError('Invalid unit. Supported units are "seconds" and "hours".')
   }
 
-  const d = Math.floor(hours / 24)
-  hours = hours % 24
-
-  return { hours: hours, minutes: minutes, seconds: seconds }
+  return { hours, minutes, seconds }
 }
