@@ -43,11 +43,18 @@ src/
 
 ### Implementation
 
--[x]  EsLint and Prettier configured
--[x]  react with typescript
--[x]  jest
--[x]  styled components
--[ ]  e2e cypress (in progress....)
--[x]  fetch data from an API created
--[x]  loading state
--[x]  charts added
+- [x]  EsLint and Prettier configured
+
+- [x]  react with typescript
+
+- [x]  jest
+
+- [x]  styled components
+
+- [x]  e2e cypress (in progress....)
+
+- [x]  fetch data from an API created
+
+- [x]  loading state
+
+- [x]  charts added
