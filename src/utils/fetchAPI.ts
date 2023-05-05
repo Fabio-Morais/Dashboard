@@ -5,7 +5,7 @@ export const fetchMetrics = async () => {
   try {
     // Perform the API request to fetch the metrics data
     const response = await fetch('/api/metrics')
-    await delay(2000)
+    await delay(1000)
 
     return await response.json()
   } catch (error) {
