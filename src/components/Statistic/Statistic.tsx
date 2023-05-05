@@ -3,13 +3,11 @@ import {
   Box,
   Card,
   Flex,
-  Skeleton,
   Stat,
   StatArrow,
   StatHelpText,
   StatLabel,
   StatNumber,
-  Text,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { Tooltip } from '@chakra-ui/react'
@@ -25,11 +23,12 @@ export default function IconBox(props: {
   value: string | number
   description?: string
   isLoaded?: boolean
+  index: number
 }) {
   const { startContent, name, growth, value, isLoaded = true } = props
   const textColor = useColorModeValue('secondaryGray.900', 'white')
   const textColorSecondary = 'secondaryGray.600'
-
+  const randomNumber = ['23.24%', '-5.21%', '10.70%']
   return (
     <Card p="15px" variant="elevated" width={'100%'} maxW="400px">
       <Flex my="auto" h="100%" align={{ base: 'center', xl: 'center' }} justify={{ base: 'center', xl: 'center' }}>
@@ -56,14 +55,14 @@ export default function IconBox(props: {
           {growth ? (
             <Flex align="center">
               <StatHelpText mr="5px">
-                <StatArrow type="increase" />
-                23.36%
+                <StatArrow type={randomNumber[props.index][0] == '-' ? 'decrease' : 'increase'} />
+                {randomNumber[props.index]}
               </StatHelpText>
             </Flex>
           ) : null}
         </Stat>
         <Box pr={5}>
-          <LineChart />
+          <LineChart index={props.index} />
         </Box>
         <Box style={{ position: 'absolute', top: 10, right: 10 }}>
           <Tooltip hasArrow label={props.description} bg="gray.300" color="black">

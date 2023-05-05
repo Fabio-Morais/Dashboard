@@ -23,7 +23,7 @@ const EfficiencySection = (props: Props) => {
         <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }} justifyContent={'space-between'}>
           {props.data &&
             //Already loaded
-            props.data.map((metric: Metric) => (
+            props.data.map((metric: Metric, index: number) => (
               <Statistic
                 startContent={<IconBox icon={<Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />} />}
                 name={metric.label}
@@ -31,6 +31,7 @@ const EfficiencySection = (props: Props) => {
                 description={metric.description}
                 key={metric.id}
                 growth={'+23'}
+                index={index}
               />
             ))}
         </Flex>

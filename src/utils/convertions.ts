@@ -1,18 +1,26 @@
 import { Timer } from '@/utils/interfaces/Timer'
 
-export const convertSecondsToTimeObject = (s: number): Timer => {
-  let hours,
-    minutes,
-    seconds = s
+export const convertToTimeObject = (value: number, unit: string): Timer => {
+  let hours = 0,
+    minutes = 0,
+    seconds = 0
 
-  if (isNaN(s)) {
-    throw new TypeError('Value sent to seconds-converter must be a number.')
+  if (isNaN(value)) {
+    throw new TypeError('Value sent to converter must be a number.')
   }
-  minutes = Math.floor(seconds / 60)
-  seconds = seconds % 60
 
-  hours = Math.floor(minutes / 60)
-  minutes = minutes % 60
+  if (unit === 'secs') {
+    seconds = value
+    minutes = Math.floor(seconds / 60)
+    seconds = seconds % 60
+  } else if (unit === 'hours') {
+    hours = value
+    minutes = Math.floor(hours * 60)
+    hours = Math.floor(minutes / 60)
+    minutes = minutes % 60
+  } else {
+    throw new TypeError('Invalid unit. Supported units are "seconds" and "hours".')
+  }
 
   const d = Math.floor(hours / 24)
   hours = hours % 24
