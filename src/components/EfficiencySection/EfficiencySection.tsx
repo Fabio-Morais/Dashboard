@@ -1,7 +1,8 @@
-import { Box, Container, Flex, HStack, Icon, useColorModeValue } from '@chakra-ui/react'
+import { Box, Container, Flex, Icon, useColorModeValue } from '@chakra-ui/react'
 
-import { Radar } from 'react-chartjs-2'
-import { MdBarChart } from 'react-icons/md'
+import { GiFactory } from 'react-icons/gi'
+import { IoMdSpeedometer } from 'react-icons/io'
+import { MdKeyboardDoubleArrowDown } from 'react-icons/md'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
@@ -15,7 +16,7 @@ interface Props {
 
 const EfficiencySection = (props: Props) => {
   const brandColor = useColorModeValue('brand.500', 'white')
-
+  const icons = [GiFactory, IoMdSpeedometer, MdKeyboardDoubleArrowDown]
   return (
     <Box>
       <Section>Efficiency</Section>
@@ -25,7 +26,7 @@ const EfficiencySection = (props: Props) => {
             //Already loaded
             props.data.map((metric: Metric, index: number) => (
               <Statistic
-                startContent={<IconBox icon={<Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />} />}
+                startContent={<IconBox icon={<Icon w="42px" h="42px" as={icons[index]} color={brandColor} />} />}
                 name={metric.label}
                 value={metric.value}
                 description={metric.description}

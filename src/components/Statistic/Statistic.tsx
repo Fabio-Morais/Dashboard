@@ -30,16 +30,16 @@ export default function IconBox(props: {
   const textColorSecondary = 'secondaryGray.600'
   const randomNumber = ['23.24%', '-5.21%', '10.70%']
   return (
-    <Card p="15px" variant="elevated" width={'100%'} maxW="400px">
+    <Card p="15px" variant="elevated" width={'100%'} maxW="450px">
       <Flex my="auto" h="100%" align={{ base: 'center', xl: 'center' }} justify={{ base: 'center', xl: 'center' }}>
         {startContent}
 
-        <Stat my="auto" ml={startContent ? '18px' : '0px'}>
+        <Stat my="auto" ml={startContent ? '24px' : '0px'}>
           <StatLabel
             lineHeight="100%"
             color={textColorSecondary}
             fontSize={{
-              base: 'sm',
+              base: 'md',
             }}
           >
             {name}
@@ -54,14 +54,14 @@ export default function IconBox(props: {
           </StatNumber>
           {growth ? (
             <Flex align="center">
-              <StatHelpText mr="5px">
+              <StatHelpText>
                 <StatArrow type={randomNumber[props.index][0] == '-' ? 'decrease' : 'increase'} />
                 {randomNumber[props.index]}
               </StatHelpText>
             </Flex>
           ) : null}
         </Stat>
-        <Box pr={5}>
+        <Box mr={9}>
           <LineChart index={props.index} />
         </Box>
         <Box style={{ position: 'absolute', top: 10, right: 10 }}>
