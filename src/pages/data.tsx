@@ -7,6 +7,7 @@ import { useQuery } from 'react-query'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
+import Header from '@/components/Header'
 import Sidebar from '@/components/SideBar/Sidebar'
 
 import { fetchMetrics, metricsByCategory } from '@/utils/fetchAPI'
@@ -16,16 +17,7 @@ export default function Home() {
   return (
     <>
       <Sidebar>
-        <Breadcrumb>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Pages</BreadcrumbLink>
-          </BreadcrumbItem>
-
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/data">Data</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
-        <Heading size="xl">Data</Heading>
+        <Header path={'/data'}>Data</Header>
 
         <Container maxW="10xl" mt={10}>
           {status == 'success' && (

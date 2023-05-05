@@ -17,7 +17,7 @@ interface Props {
   data: Metric[]
 }
 
-const ShiftSection = (props: Props) => {
+const DowntimeSection = (props: Props) => {
   const { chartData } = usePieHook({ ...props, convertToMinutes: true })
 
   const convertTime = (time: number, type: string) => {
@@ -52,4 +52,4 @@ const ShiftSection = (props: Props) => {
   )
 }
 
-export default ShiftSection
+export default DowntimeSection

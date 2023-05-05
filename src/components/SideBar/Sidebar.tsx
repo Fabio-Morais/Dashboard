@@ -13,6 +13,7 @@ import {
   IconButton,
   Link,
   Text,
+  useColorMode,
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
@@ -66,7 +67,9 @@ interface SidebarProps extends BoxProps {
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   const router = useRouter()
-  console.log(router.asPath)
+  const { colorMode } = useColorMode()
+  const image = colorMode === 'dark' ? '/factoryPalWhite.svg' : '/factoryPal.svg'
+
   const [selectedItemIndex, setSelectedItemIndex] = useState(router.asPath == '/' ? 0 : 1) // Initialize the selected item index
 
   return (
@@ -80,7 +83,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between" my={4}>
-        <Image src="/factoryPal.svg" alt="My SVG Image" width={250} height={100} />
+        <Image src={image} alt="My SVG Image" width={250} height={100} />
 
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>

@@ -1,8 +1,22 @@
 import { InfoIcon } from '@chakra-ui/icons'
-import { Box, Card, Flex, Skeleton, Stat, StatLabel, StatNumber, Text, useColorModeValue } from '@chakra-ui/react'
+import {
+  Box,
+  Card,
+  Flex,
+  Skeleton,
+  Stat,
+  StatArrow,
+  StatHelpText,
+  StatLabel,
+  StatNumber,
+  Text,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import { Tooltip } from '@chakra-ui/react'
 
 import React from 'react'
+
+import LineChart from '@/components/LineChart'
 
 export default function IconBox(props: {
   startContent?: JSX.Element
@@ -17,7 +31,7 @@ export default function IconBox(props: {
   const textColorSecondary = 'secondaryGray.600'
 
   return (
-    <Card p="15px" variant="elevated" width={'100%'} maxW="250px">
+    <Card p="15px" variant="elevated" width={'100%'} maxW="380px">
       <Flex my="auto" h="100%" align={{ base: 'center', xl: 'center' }} justify={{ base: 'center', xl: 'center' }}>
         {startContent}
 
@@ -41,15 +55,16 @@ export default function IconBox(props: {
           </StatNumber>
           {growth ? (
             <Flex align="center">
-              <Text color="green.500" fontSize="xs" fontWeight="700" mr="5px">
-                {growth}
-              </Text>
-              <Text color="secondaryGray.600" fontSize="xs" fontWeight="400">
-                since last month
-              </Text>
+              <StatHelpText mr="5px">
+                <StatArrow type="increase" />
+                23.36%
+              </StatHelpText>
             </Flex>
           ) : null}
         </Stat>
+        <Box>
+          <LineChart />
+        </Box>
         <Box style={{ position: 'absolute', top: 10, right: 10 }}>
           <Tooltip hasArrow label={props.description} bg="gray.300" color="black">
             <InfoIcon />

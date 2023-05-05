@@ -19,6 +19,7 @@ const EfficiencySection = (props: Props) => {
   return (
     <Box>
       <Section>Efficiency</Section>
+
       <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }} justifyContent={'space-around'}>
         {props.data &&
           //Already loaded
@@ -29,6 +30,7 @@ const EfficiencySection = (props: Props) => {
               value={metric.value}
               description={metric.description}
               key={metric.id}
+              growth={'+23'}
             />
           ))}
       </Flex>
