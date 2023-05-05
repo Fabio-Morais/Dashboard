@@ -1,8 +1,9 @@
+import Head from 'next/head'
+
 import { Container, Heading, Stack } from '@chakra-ui/react'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
-import { FadeLoader } from 'react-spinners'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
@@ -28,6 +29,9 @@ export default function Home() {
   }, [data])
   return (
     <>
+      <Head>
+        <title>Factory Pal - Home</title>
+      </Head>
       <Sidebar>
         <Header path={'/'}>Home</Header>
         {status == 'success' ? (

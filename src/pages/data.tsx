@@ -1,8 +1,10 @@
+import Head from 'next/head'
+
 import { Card, Container, Heading, Text } from '@chakra-ui/react'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from '@chakra-ui/react'
 import { Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from '@chakra-ui/react'
 
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 
 import { Metric } from '@/utils/interfaces/Metrics'
@@ -11,12 +13,15 @@ import Header from '@/components/Header'
 import LoadingScreen from '@/components/LoadingScreen'
 import Sidebar from '@/components/SideBar/Sidebar'
 
-import { fetchMetrics, metricsByCategory } from '@/utils/fetchAPI'
+import { fetchMetrics } from '@/utils/fetchAPI'
 
 export default function Home() {
   const { data, status } = useQuery('metrics', fetchMetrics)
   return (
     <>
+      <Head>
+        <title>Factory Pal - Data</title>
+      </Head>
       <Sidebar>
         <Header path={'/data'}>Data</Header>
         {status == 'success' ? (
