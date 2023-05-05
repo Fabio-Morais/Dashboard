@@ -31,7 +31,7 @@ export default function IconBox(props: {
   const textColorSecondary = 'secondaryGray.600'
 
   return (
-    <Card p="15px" variant="elevated" width={'100%'} maxW="380px">
+    <Card p="15px" variant="elevated" width={'100%'} maxW="400px">
       <Flex my="auto" h="100%" align={{ base: 'center', xl: 'center' }} justify={{ base: 'center', xl: 'center' }}>
         {startContent}
 
@@ -62,7 +62,7 @@ export default function IconBox(props: {
             </Flex>
           ) : null}
         </Stat>
-        <Box>
+        <Box pr={5}>
           <LineChart />
         </Box>
         <Box style={{ position: 'absolute', top: 10, right: 10 }}>

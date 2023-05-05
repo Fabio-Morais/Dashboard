@@ -1,4 +1,4 @@
-import { Box, Card, Flex, HStack, Icon, useColorModeValue } from '@chakra-ui/react'
+import { Box, Container, Flex, HStack, Icon, useColorModeValue } from '@chakra-ui/react'
 
 import { Radar } from 'react-chartjs-2'
 import { MdBarChart } from 'react-icons/md'
@@ -19,21 +19,22 @@ const EfficiencySection = (props: Props) => {
   return (
     <Box>
       <Section>Efficiency</Section>
-
-      <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }} justifyContent={'space-around'}>
-        {props.data &&
-          //Already loaded
-          props.data.map((metric: Metric) => (
-            <Statistic
-              startContent={<IconBox icon={<Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />} />}
-              name={metric.label}
-              value={metric.value}
-              description={metric.description}
-              key={metric.id}
-              growth={'+23'}
-            />
-          ))}
-      </Flex>
+      <Container maxW="98%" mt={8}>
+        <Flex gap="36px" flexWrap={'wrap'} style={{ display: 'flex' }} justifyContent={'space-between'}>
+          {props.data &&
+            //Already loaded
+            props.data.map((metric: Metric) => (
+              <Statistic
+                startContent={<IconBox icon={<Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />} />}
+                name={metric.label}
+                value={metric.value}
+                description={metric.description}
+                key={metric.id}
+                growth={'+23'}
+              />
+            ))}
+        </Flex>
+      </Container>
     </Box>
   )
 }

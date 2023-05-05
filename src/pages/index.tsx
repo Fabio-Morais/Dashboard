@@ -29,7 +29,7 @@ export default function Home() {
     <>
       <Sidebar>
         <Header path={'/'}>Home</Header>
-        <Container maxW="10xl" mt={10}>
+        <Container maxW="10xl" mt={10} mb={20}>
           <Stack direction={['column']} spacing={10}>
             <EfficiencySection data={metrics['efficiency']} />
             <ShiftSection data={metrics['shift']} />
