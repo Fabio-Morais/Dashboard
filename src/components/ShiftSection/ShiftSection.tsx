@@ -26,7 +26,7 @@ const ShiftSection = (props: Props) => {
               Time Spent
             </Text>
             <Flex flexDirection={'column'} gap={8} style={{ marginTop: 'auto', marginBottom: 'auto' }}>
-              {props.data && props.data.map((metric) => <Timer data={metric} />)}
+              {props.data && props.data.map((metric) => <Timer data={metric} key={metric.id} />)}
             </Flex>
           </Card>
 

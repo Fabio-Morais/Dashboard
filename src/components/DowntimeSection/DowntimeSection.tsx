@@ -22,7 +22,7 @@ const DowntimeSection = (props: Props) => {
         <HStack spacing={'45px'} style={{ display: 'flex' }} height="400px">
           <Card height="100%" flex="1 1 20%" variant={'elevated'} p={5} pl={10} pr={10}>
             <Flex flexDirection={'column'} gap={6} style={{ marginTop: 'auto', marginBottom: 'auto' }}>
-              {props.data && props.data.map((metric) => <Timer data={metric} />)}
+              {props.data && props.data.map((metric) => <Timer data={metric} key={metric.id} />)}
             </Flex>
           </Card>
           <Card height="100%" flex="1 1 40%" variant={'elevated'} p={4} style={{ minWidth: 0 }}>

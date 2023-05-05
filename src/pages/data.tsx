@@ -8,6 +8,7 @@ import { useQuery } from 'react-query'
 import { Metric } from '@/utils/interfaces/Metrics'
 
 import Header from '@/components/Header'
+import LoadingScreen from '@/components/LoadingScreen'
 import Sidebar from '@/components/SideBar/Sidebar'
 
 import { fetchMetrics, metricsByCategory } from '@/utils/fetchAPI'
@@ -18,9 +19,8 @@ export default function Home() {
     <>
       <Sidebar>
         <Header path={'/data'}>Data</Header>
-
-        <Container maxW="10xl" mt={10}>
-          {status == 'success' && (
+        {status == 'success' ? (
+          <Container maxW="10xl" mt={10}>
             <Card p="15px" variant="elevated">
               <Text mb={5} textAlign={'center'} fontSize="xl">
                 All data available
@@ -46,8 +46,10 @@ export default function Home() {
                 </Table>
               </TableContainer>
             </Card>
-          )}
-        </Container>
+          </Container>
+        ) : (
+          <LoadingScreen />
+        )}
       </Sidebar>
     </>
   )

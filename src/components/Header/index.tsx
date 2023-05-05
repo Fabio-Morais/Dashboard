@@ -9,7 +9,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DarkModeSwitch } from 'react-toggle-dark-mode'
 
 interface Props {
@@ -18,8 +18,11 @@ interface Props {
 }
 const Header = (props: Props) => {
   const { colorMode, toggleColorMode } = useColorMode()
+  const [isDarkMode, setIsDarkMode] = useState(colorMode != 'light')
 
-  const [isDarkMode, setIsDarkMode] = useState(colorMode == 'light')
+  useEffect(() => {
+    setIsDarkMode(colorMode != 'light')
+  }, [colorMode])
 
   return (
     <Flex justifyContent={'space-between'} align={'center'}>
@@ -37,7 +40,7 @@ const Header = (props: Props) => {
       </Box>
       <Box mr={'5%'}>
         <DarkModeSwitch
-          checked={isDarkMode}
+          checked={!isDarkMode}
           onChange={() => {
             setIsDarkMode((prev) => !prev)
             toggleColorMode()
