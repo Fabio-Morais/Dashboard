@@ -6,9 +6,9 @@ import { MdKeyboardDoubleArrowDown } from 'react-icons/md'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
-import IconBox from '@/components/IconBox/IconBox'
-import Section from '@/components/Section/Section'
-import Statistic from '@/components/Statistic/Statistic'
+import IconBox from '@/components/IconBox'
+import Section from '@/components/Section'
+import Statistic from '@/components/Statistic'
 
 interface Props {
   data: Metric[]

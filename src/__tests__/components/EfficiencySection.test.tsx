@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
-import EfficiencySection from '@/components/EfficiencySection/EfficiencySection'
+import Index from '@/components/EfficiencySection'
 
 const mockData: Metric[] = [
   {
@@ -24,7 +24,7 @@ const mockData: Metric[] = [
 ]
 
 test('renders efficiency section with statistics', () => {
-  const { getByText } = render(<EfficiencySection data={mockData} />)
+  const { getByText } = render(<Index data={mockData} />)
 
   // Check if the section header is rendered
   const sectionHeader = getByText('Efficiency')

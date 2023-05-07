@@ -7,12 +7,12 @@ import { useQuery } from 'react-query'
 
 import { Metric } from '@/utils/interfaces/Metrics'
 
-import DowntimeSection from '@/components/DowntimeSection/DowntimeSection'
-import EfficiencySection from '@/components/EfficiencySection/EfficiencySection'
+import DowntimeSection from '@/components/DowntimeSection'
+import EfficiencySection from '@/components/EfficiencySection'
 import Header from '@/components/Header'
 import LoadingScreen from '@/components/LoadingScreen'
-import ShiftSection from '@/components/ShiftSection/ShiftSection'
-import Sidebar from '@/components/SideBar/Sidebar'
+import ShiftSection from '@/components/ShiftSection'
+import Sidebar from '@/components/SideBar'
 
 import { fetchMetrics, metricsByCategory } from '@/utils/fetchAPI'
 

@@ -3,7 +3,7 @@ import { Box, Card, Container, Flex, HStack, Text } from '@chakra-ui/react'
 import { Metric } from '@/utils/interfaces/Metrics'
 
 import PieChart from '@/components/PieChart'
-import Section from '@/components/Section/Section'
+import Section from '@/components/Section'
 import Timer from '@/components/Timer'
 
 import usePieHook from '@/utils/hooks/usePieHook'

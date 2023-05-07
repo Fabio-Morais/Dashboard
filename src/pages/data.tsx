@@ -11,7 +11,7 @@ import { Metric } from '@/utils/interfaces/Metrics'
 
 import Header from '@/components/Header'
 import LoadingScreen from '@/components/LoadingScreen'
-import Sidebar from '@/components/SideBar/Sidebar'
+import Sidebar from '@/components/SideBar'
 
 import { fetchMetrics } from '@/utils/fetchAPI'
 
